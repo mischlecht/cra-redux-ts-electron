@@ -1,14 +1,12 @@
-import logo from "./logo.svg";
 import PlaylistForm from "./features/playlist/PlaylistForm";
-import "./App.css";
+import styles from "./App.module.css";
+import { Grid } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <PlaylistForm />
-      </header>
-    </div>
+    <Grid className={styles.app_container} spacing={1}>
+      <PlaylistForm />
+    </Grid>
   );
 }
 

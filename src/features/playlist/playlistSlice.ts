@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { v4 as uuid } from "uuid";
 import { RootState } from "../../app/store";
 
 export interface Playlist {
-  index: number;
+  id: string;
   title: string;
   videos: Video[];
 }
@@ -30,10 +31,10 @@ export const playlistSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      const index = state.playlists.length;
+      const id = uuid();
       const newPlaylist: Playlist = {
-        index,
-        title: `${action.payload}_${index}`,
+        id,
+        title: `${action.payload}_${id}`,
         videos: [],
       };
 
